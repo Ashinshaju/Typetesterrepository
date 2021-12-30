@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WPM tester</title>
+  <link rel="icon" href="images/Keyboardlogo.png">
+  <link rel="stylesheet" href="typetester-css.css">
+  <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <img src="images/Keyboardlogo.png" class="logo">
+    <a class="navbar-brand" href="#">Typetester</a>
+    
+    <ul class="navbar-nav mr-auto"></ul>
+
+
+    <form class="form-inline my-2 my-lg-0">
+
+      <a href="login/index.html" class="text-success">Account</a>
+    </form>
+    </div>
+  </nav>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="timer-field col-xs-12 col-lg-6 ">
+        <div id="app"></div>
+      </div>
+      <div class="passage-field col-xs-12 col-lg-6">
+        <div class="type-area col-lg-12 col-xs-12">
+          <div class="passage-box">
+            <h6 class="ml-2 mt-2" id="passage"></h6>
+          </div>
+          <input type="text" id="text" class="text-box mt-3 col-lg-12" placeholder="Type the above passage here...">
+        </div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="level-chooser col-lg-6 col-xs-12 bg-light">
+
+
+        <div class="level-choose col-lg-12 col-xs-12">
+
+
+          <h3 class="text-center mt-2">Select your level</h3>
+          <div class="buttons">
+
+            <button onclick="beginner1()" class="btn1">
+              <h6>Beginner</h6>
+            </button>
+            <button onclick="average1()" class="btn1 ml-2">
+              <h6>Average</h6>
+            </button>
+            <button onlick="expert1()" class="btn1 ml-2">
+              <h6>Expert</h6>
+            </button>
+            <button class="btn1 ml-2">
+              <h6>Custom</h6>
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+      <div class="another-chooser col-lg-6 col-xs-12 bg-light">
+        <img src="images/scrnli_12_21_2021_9-43-33 PM.png" class="another-choose">
+
+      </div>
+
+    </div>
+    <!-- Footer -->
+    <!-- Footer -->
+    <footer class="page-footer font-small bg-white pt-4">
+
+      <!-- Footer Links -->
+      <div class="text-center text-md-left">
+
+        <!-- Grid row -->
+        <div class="row">
+
+          <!-- Grid column -->
+          <div class="col-md-6 mt-md-0 mt-3">
+
+            <!-- Content -->
+            <h5 class="text-uppercase">WPM tester</h5>
+            <p>SITE BY ASHIN</p>
+
+          </div>
+          <!-- Grid column -->
+
+          <hr class="clearfix w-100 d-md-none pb-3">
+
+          <!-- Grid column -->
+          <div class="col-md-3 mb-md-0 mb-3">
+
+            <!-- Links -->
+
+
+            <ul class="list-unstyled">
+              <li>
+                <a href="https://www.facebook.com/ashin.shaju.1466/">Facebook</a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/ashin-shaju-a04924222/">Linkedin</a>
+              </li>
+
+            </ul>
+
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-3 mb-md-0 mb-3">
+
+            <!-- Links -->
+
+
+            <ul class="list-unstyled">
+              <li>
+                <a href="https://www.instagram.com/iam__ashin/">Instagram</a>
+              </li>
+              <li>
+                <a href="https://github.com/Ashinshaju">Github</a>
+              </li>
+
+            </ul>
+
+          </div>
+          <!-- Grid column -->
+
+        </div>
+        <!-- Grid row -->
+
+      </div>
+      <!-- Footer Links -->
+
+      <!-- Copyright -->
+      <div class="footer-copyright text-center py-3">© 2020 Copyright:
+        <a href="https://ashinshaju.github.io/WPM-tester/">https://ashinshaju.github.io/WPM-tester/</a>
+      </div>
+      <!-- Copyright -->
+
+    </footer>
+    <!-- Footer -->
+
+
+
+    </footer>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"></script>
+    <script src="typetester-js.js"></script>
+
+</body>
+
+</html>

@@ -1,48 +1,70 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-  <style>
-
-  </style>
-</head>
-
 <body>
-  <div class="container">
-    <div class="box col-xs-12 col-lg-4">
-      <h2>Sign in</h2>
-      <p>Use your Ash Account</p>
-      <form action="typetester.html">
-        <div class="inputBox">
-          <input type="email" placeholder="Email" name="email" required onkeyup="this.setAttribute('value', this.value);" value="">
-        
-        </div>
-        <div class="inputBox">
-          <input type="text" placeholder="Password" name="text" required onkeyup="this.setAttribute('value', this.value);" value="">
-          
-        </div>
-        <input type="submit" name="sign-in" value="Sign In"></input>
-        <button type="button" onclick="location.href='typetester.html'" class="btn btn-light">Register</button>
-      </form>
+
+<header>
+  <div>
+    <div class="brand">TAPPET<span>.</span></div>
+    <div class="tagline">a typing speed test</div>
+  </div>
+</header>
+
+<main>
+  <div class="controls">
+    <div class="duration-group" id="durationGroup">
+      <button data-secs="15">15s</button>
+      <button data-secs="30" class="active">30s</button>
+      <button data-secs="60">60s</button>
+      <button data-secs="120">120s</button>
     </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
-      integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
-      crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
-      integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
-      crossorigin="anonymous"></script>
+    <button class="restart-btn" id="restartBtn">restart</button>
+  </div>
 
+  <div class="carriage" aria-hidden="true">
+    <div class="carriage-track"></div>
+    <div class="carriage-fill" id="carriageFill"></div>
+    <div class="carriage-marker" id="carriageMarker" style="left:0%"></div>
+    <div class="carriage-label" id="carriageLabel">00:30</div>
+  </div>
+
+  <div class="paper-card">
+    <div id="passage" tabindex="0" role="textbox" aria-label="Typing passage. Click and start typing."></div>
+  </div>
+
+  <p class="type-hint">click the text and start typing &nbsp;·&nbsp; <kbd>tab</kbd> then <kbd>enter</kbd> to restart</p>
+
+  <div class="stats-strip">
+    <div class="stat-cell">
+      <div class="stat-label">WPM</div>
+      <div class="stat-value" id="liveWpm">0</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-label">Accuracy</div>
+      <div class="stat-value" id="liveAcc">100<small>%</small></div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-label">Time left</div>
+      <div class="stat-value" id="liveTime">0:30</div>
+    </div>
+  </div>
+
+  <footer>press <kbd style="border:1px solid var(--line); border-radius:3px; padding:1px 6px; background:var(--paper-dim);">esc</kbd> to reset anytime</footer>
+</main>
+
+<div class="receipt-overlay" id="receiptOverlay">
+  <div class="receipt">
+    <h2>Test Complete</h2>
+    <div class="sub" id="receiptDate">—</div>
+    <div class="receipt-row big">
+      <span class="k">WPM</span>
+      <span class="v" id="resWpm">0</span>
+    </div>
+    <div class="receipt-row"><span class="k">Raw WPM</span><span class="v" id="resRaw">0</span></div>
+    <div class="receipt-row"><span class="k">Accuracy</span><span class="v" id="resAcc">0%</span></div>
+    <div class="receipt-row"><span class="k">Characters typed</span><span class="v" id="resChars">0</span></div>
+    <div class="receipt-row"><span class="k">Errors</span><span class="v" id="resErr">0</span></div>
+    <div class="receipt-row"><span class="k">Duration</span><span class="v" id="resDur">0s</span></div>
+    <div class="receipt-actions">
+      <button class="secondary" id="closeReceipt">close</button>
+      <button id="tryAgain">try again</button>
+    </div>
+  </div>
 </div>
-</body>
-
-</html>

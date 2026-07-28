@@ -1,102 +1,127 @@
-body {
-    margin: 0;
-    padding: 0;
-    background-size: cover;
-    font-family: sans-serif;
+.stat-label{
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 6px;
   }
- .container{
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   height: 700px;
- }
-  
-  .box {
-
-
-
-
-    padding: 2.5rem;
-    box-sizing: border-box;
-    border: 1px solid #dadce0;
-    -webkit-border-radius: 8px;
-    border-radius: 8px;
-
+  .stat-value{
+    font-size: 32px;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    color: var(--ink);
   }
-  
-  .box h2 {
-    margin: 0px 0 -0.125rem;
-    padding: 0;
-    color: #fff;
-    text-align: center;
-    color: #202124;
-    font-family: 'Google Sans','Noto Sans Myanmar UI',arial,sans-serif;
-    font-size: 24px;
-    font-weight: 400;
+  .stat-value small{
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink-soft);
   }
 
-  .box p {
-    font-size: 16px;
-    font-weight: 400;
-    letter-spacing: .1px;
-    line-height: 1.5;
-    margin-bottom: 25px;
-    text-align: center;
+  /* ---------- Results (receipt) ---------- */
+  .receipt-overlay{
+    position: fixed; inset:0;
+    background: rgba(33,28,22,0.55);
+    display:none;
+    align-items:flex-start;
+    justify-content:center;
+    padding: 60px 20px;
+    overflow-y:auto;
+    z-index: 20;
+    animation: fadeIn .2s ease;
   }
+  .receipt-overlay.show{ display:flex; }
+  @keyframes fadeIn{ from{ opacity:0; } to{ opacity:1; } }
 
-  
-  .box .inputBox input {
-    width: 93%;
-    padding: 0.625rem 10px;
-    font-size: 1rem;
-    letter-spacing: 0.062rem;
-    margin-bottom: 1.875rem;
-    border: 1px solid #ccc;
+  .receipt{
+    background: #F6F4EE;
+    width: 100%;
+    max-width: 360px;
+    padding: 30px 26px 26px;
+    box-shadow: 0 30px 60px -20px rgba(0,0,0,0.5);
+    position:relative;
+    animation: dropIn .35s cubic-bezier(.2,.8,.3,1);
+  }
+  @keyframes dropIn{
+    from{ transform: translateY(-24px); opacity:0; }
+    to{ transform: translateY(0); opacity:1; }
+  }
+  .receipt::after{
+    content:"";
+    position:absolute;
+    left:0; right:0; bottom:-9px;
+    height: 18px;
+    background:
+      linear-gradient(-45deg, #F6F4EE 8px, transparent 0) 0 0/16px 16px repeat-x,
+      linear-gradient(45deg, #F6F4EE 8px, transparent 0) 0 0/16px 16px repeat-x;
+    background-position: bottom;
+  }
+  .receipt h2{
+    font-family: 'Space Grotesk', sans-serif;
+    text-align:center;
+    font-size: 15px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin: 0 0 4px;
+  }
+  .receipt .sub{
+    text-align:center;
+    font-size: 11px;
+    color: var(--ink-soft);
+    margin-bottom: 18px;
+    letter-spacing: 0.04em;
+  }
+  .receipt-row{
+    display:flex;
+    justify-content:space-between;
+    font-size: 13px;
+    padding: 7px 0;
+    border-bottom: 1px dashed var(--line);
+  }
+  .receipt-row.big{
+    font-size: 26px;
+    font-weight: 700;
+    border-bottom: 2px solid var(--ink);
+    padding: 10px 0 14px;
+    margin-bottom: 6px;
+  }
+  .receipt-row .k{ color: var(--ink-soft); }
+  .receipt-row .v{ font-weight: 600; font-variant-numeric: tabular-nums; }
+  .receipt-actions{
+    margin-top: 20px;
+    display:flex;
+    gap: 10px;
+  }
+  .receipt-actions button{
+    flex:1;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    padding: 11px 10px;
+    border-radius: 2px;
+    cursor:pointer;
+    border: 1px solid var(--ink);
+    background: var(--ink);
+    color: var(--paper);
+    transition: opacity .15s ease;
+  }
+  .receipt-actions button:hover{ opacity: 0.85; }
+  .receipt-actions button.secondary{
     background: transparent;
-    border-radius: 4px;
-    
+    color: var(--ink);
   }
-  
-  .box .inputBox label {
 
-  
-    padding: 0.625rem 0;
-    font-size: 1rem;
-    color: grey;
-    pointer-events: none;
-    transition: 0.5s;
+  footer{
+    margin-top: 30px;
+    font-size: 11px;
+    color: var(--pencil);
+    letter-spacing: 0.04em;
   }
-  
-  .box .inputBox input:focus ~ label,
-  .box .inputBox input:valid ~ label,
-  .box .inputBox input:not([value=""]) ~ label {
-    top: -1.125rem;
-    left: 10px;
-    color: #1a73e8;
-    font-size: 0.75rem;
-    background-color: white;
-    height: 10px;
-    padding-left: 5px;
-    padding-right: 5px;
+
+  @media (max-width: 520px){
+    #passage{ font-size: 18px; line-height: 1.85; }
+    .paper-card{ padding: 24px 18px 22px; }
+    .stat-value{ font-size: 24px; }
   }
-  .box .inputBox input:focus {
-    outline: none;
-    border: 2px solid #1a73e8;
-  }
-  .box input[type="submit"] {
-    border: none;
-    outline: none;
-    color: #fff;
-    background-color: #1a73e8;
-    padding: 0.625rem 1.25rem;
-    cursor: pointer;
-    border-radius: 0.312rem;
-    font-size: 1rem;
-    float: right;
-  }
-  
-  .box input[type="submit"]:hover {
-    background-color: #287ae6;
-    box-shadow: 0 1px 1px 0 rgba(66,133,244,0.45), 0 1px 3px 1px rgba(66,133,244,0.3);
-  }
-  
+</style>
+</head>

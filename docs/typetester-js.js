@@ -6,7 +6,7 @@ const ALERT_THRESHOLD = 5;
 
 const COLOR_CODES = {
     info: {
-        color: "green"
+        color: "blue"
     },
     warning: {
         color: "orange",
